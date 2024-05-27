@@ -1,11 +1,16 @@
 package main
 
-import "github.com/labstack/echo/v4"
+import (
+	"github.com/iqbalpradipta/Task-management-Application/src/config"
+	"github.com/labstack/echo/v4"
+)
 
 func main() {
 	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
-		return c.String(200, "Hello Dunia")
-	})
+
+	config.DbConfig()
+	// migration.RunMigration()
+	// routes.Routes(e.Group("/api/v1"))
+	
 	e.Logger.Fatal(e.Start(":8000"))
 }
