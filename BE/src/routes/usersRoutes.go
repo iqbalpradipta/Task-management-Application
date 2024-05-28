@@ -13,4 +13,7 @@ func Routes(e *echo.Group) {
 
 	e.GET("/users", c.GetUsers)
 	e.GET("/users/:id", c.GetUserById)
+	e.POST("/users", c.CreateUser)
+	e.PATCH("/users/:id", c.UpdateUsers)
+	e.DELETE("/users/:id", c.DeleteUsers)
 }
