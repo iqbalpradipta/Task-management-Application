@@ -1,4 +1,4 @@
-POST	/users	Public	Sign up
+POST	/users	Public	Sign up (progress)
 POST	/users/login	Public	Login
 GET	/users/me	Private	User's Profile
 PATCH	/users/me	Private	Update Profile
