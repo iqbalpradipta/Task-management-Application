@@ -7,6 +7,7 @@ type Users struct {
 	Name       string    	`json:"name"`
 	Email      string    	`json:"email"`
 	Password   string    	`json:"password"`
+	TasksID	   []Task		`gorm:"foreignKey:UserID"`
 	Created_at time.Time	`json:"created_at"`
 	Updated_at	time.Time	`json:"updated_at"`
 }
