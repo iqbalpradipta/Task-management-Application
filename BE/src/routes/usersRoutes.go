@@ -3,6 +3,7 @@ package routes
 import (
 	"github.com/iqbalpradipta/Task-management-Application/BE/src/config"
 	"github.com/iqbalpradipta/Task-management-Application/BE/src/controllers"
+	"github.com/iqbalpradipta/Task-management-Application/BE/src/middleware"
 	"github.com/iqbalpradipta/Task-management-Application/BE/src/services"
 	"github.com/labstack/echo/v4"
 )
@@ -12,8 +13,9 @@ func Routes(e *echo.Group) {
 	c := controllers.UserController(r)
 
 	e.GET("/users", c.GetUsers)
-	e.GET("/users/:id", c.GetUserById)
+	e.GET("/users/:id", c.GetUserById, middleware.JWTMiddleware())
 	e.POST("/users", c.CreateUser)
-	e.PATCH("/users/:id", c.UpdateUsers)
+	e.POST("/users/login", c.Login)
+	e.PATCH("/users/:id", c.UpdateUsers, middleware.JWTMiddleware())
 	e.DELETE("/users/:id", c.DeleteUsers)
 }

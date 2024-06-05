@@ -8,7 +8,9 @@ import (
 type Users interface {
 	GetUsers() ([]model.Users , error)
 	GetUserById(id int) (model.Users, error)
+	GetUserByEmail(email string) (model.Users, error)
 	CreateUsers(users model.Users) (model.Users, error)
+	Login(users model.Users) (model.Users, error)
 	UpdatedUsers(users model.Users) (model.Users, error)
 	DeleteUsers(users model.Users) (model.Users, error)
 }
@@ -36,8 +38,21 @@ func (r *Repository) GetUserById(id int) (model.Users, error) {
 	return users, err
 }
 
+func (r *Repository) GetUserByEmail(email string) (model.Users, error) {
+	var users model.Users
+	err := r.db.Where("email = ?", email).First(&users).Error
+
+	return users, err
+}
+
 func (r *Repository) CreateUsers(users model.Users) (model.Users, error) {
 	err := r.db.Create(&users).Error
+
+	return users, err
+}
+
+func (r *Repository) Login(users model.Users) (model.Users, error) {
+	err := r.db.First(&users).Error
 
 	return users, err
 }
