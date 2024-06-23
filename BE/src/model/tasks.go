@@ -7,9 +7,9 @@ type Task struct {
 	Description 		string    `json:"description" form:"description"`
 	UserID				int
 	Task_Detail_Id		int
-	Task_Detail			TaskDetail	`gorm:"foreignKey:Task_Detail_Id"`
+	Task_Detail			*TaskDetail	`gorm:"foreignKey:Task_Detail_Id"`
 	Task_Status_Id		int
-	Task_Status			TaskStatus	`gorm:"foreignKey:Task_Status_Id"`
+	Task_Status			*TaskStatus	`gorm:"foreignKey:Task_Status_Id"`
 	Created_at  time.Time `json:"created_at"`
 	Updated_at  time.Time `json:"updated_at"`
 }

@@ -42,7 +42,7 @@ func (u *userService) GetUserById(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, helpers.FailedResponse("Error when get data by Id"))
 	}
 	
-	return c.JSON(http.StatusOK, helpers.SuccessResponse("Success get data By Id" ,convResponse(user)))
+	return c.JSON(http.StatusOK, helpers.SuccessResponse("Success get data By Id" ,convResponseUsers(user)))
 }
 
 func (u *userService) CreateUser(c echo.Context) error {
@@ -165,10 +165,10 @@ func (u *userService) DeleteUsers(c echo.Context) error {
 		return c.JSON(http.StatusBadRequest, helpers.FailedResponse("Error delete data cause data not found !"))
 	}
 
-	return c.JSON(http.StatusOK, helpers.SuccessResponse("Success delete Users", convResponse(data)))
+	return c.JSON(http.StatusOK, helpers.SuccessResponse("Success delete Users", convResponseUsers(data)))
 }
 
-func convResponse(u model.Users) model.UserResponse {
+func convResponseUsers(u model.Users) model.UserResponse {
 	return model.UserResponse{
 		ID: u.ID,
 		Name: u.Name,

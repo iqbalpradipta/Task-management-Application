@@ -8,6 +8,9 @@ import (
 func RunMigration() {
 	err := config.DB.AutoMigrate(
 		&model.Users{},
+		&model.Task{},
+		&model.TaskDetail{},
+		&model.TaskStatus{},
 	)
 
 	if err != nil {

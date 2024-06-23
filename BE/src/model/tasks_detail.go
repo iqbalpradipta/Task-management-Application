@@ -13,10 +13,10 @@ type TaskDetail struct {
 }
 
 type TaskDetailRequest struct {
-	Archived 	bool      `json:"archived" form:"archived"`
-	Priority	string	  `json:"priority" form:"priority"`
-	Tag			string	  `json:"tag" form:"tag"`
-	DueDate		time.Time `json:"duedate" form:"duedate"`
+	Archived 	bool      `json:"archived" form:"archived" validation:"required"`
+	Priority	string	  `json:"priority" form:"priority" validation:"required"`
+	Tag			string	  `json:"tag" form:"tag" validation:"required"`
+	DueDate		time.Time `json:"duedate" form:"duedate" validation:"required"`
 }
 
 type TaskDetailRequestUpdate struct {

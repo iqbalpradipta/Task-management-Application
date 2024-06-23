@@ -15,10 +15,6 @@ type Users interface {
 	DeleteUsers(users model.Users) (model.Users, error)
 }
 
-type Repository struct {
-	db *gorm.DB
-}
-
 func RepositoryUsers(db *gorm.DB) *Repository{
 	return &Repository{db}
 }

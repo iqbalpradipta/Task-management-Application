@@ -10,7 +10,7 @@ type TaskStatus struct {
 }
 
 type TaskStatusRequest struct {
-	Status		string	  `json:"status" form:"status"`
+	Status		string	  `json:"status" form:"status" validation:"required"`
 }
 
 type TaskStatusRequestUpdate struct {
