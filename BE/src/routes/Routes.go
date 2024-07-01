@@ -19,6 +19,9 @@ func Routes(e *echo.Group) {
 	rtaskDetail := services.RepositoryTaskDetail(config.DB)
 	cTaskDetail := controllers.TaskDetailController(rtaskDetail)
 
+	rtaskStatus:= services.TaskStatusRepository(config.DB)
+	cTaskStatus:= controllers.TaskStatusController(rtaskStatus)
+
 
 	e.GET("/users", cusers.GetUsers)
 	e.GET("/users/:id", cusers.GetUserById, middleware.JWTMiddleware())
@@ -36,4 +39,10 @@ func Routes(e *echo.Group) {
 	e.POST("/taskDetail", cTaskDetail.CreateTaskDetail)
 	e.PATCH("/taskDetail/:id", cTaskDetail.UpdateTaskDetail)
 	e.DELETE("/taskDetail/:id", cTaskDetail.DeleteTaskDetail)
+
+	e.GET("/taskStatus", cTaskStatus.GetTaskStatusAll)
+	e.GET("/taskStatus/:id", cTaskStatus.GetTaskStatusById)
+	e.POST("/taskStatus", cTaskStatus.CreateTaskStatus)
+	e.PATCH("/taskStatus/:id", cTaskStatus.UpdateTaskStatus)
+	e.DELETE("/taskStatus/:id", cTaskStatus.DeleteTaskStatus)
 }

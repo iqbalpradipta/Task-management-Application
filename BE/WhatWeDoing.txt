@@ -1,14 +1,14 @@
-POST	/users	Public	Sign up (progress)
-POST	/users/login	Public	Login
-GET	/users/me	Private	User's Profile
-PATCH	/users/me	Private	Update Profile
+POST	/users	Public	Sign up (Complete)
+POST	/users/login	Public	Login (Complete)
+GET	/users/me	Private	User's Profile (Complete)
+PATCH	/users/me	Private	Update Profile (Complete)
 POST	/users/me/avatar	Private	Upload Profile Picture
 GET	/users/userID/avataar	Private	View Profile Picture
 DELETE	/users/me/avatar	Private	Delete Profile Picture
-DELETE	/users/me	Private	Delete Account
-POST	/users/tasks	Private	Create a Task
+DELETE	/users/me	Private	Delete Account (Complete)
+POST	/users/tasks	Private	Create a Task 
 GET	/users/tasks/taskID	Private	View a Task
-GET	/users/tasks	Private	View all Tasks
+GET	/users/tasks	Private	View all Tasks (Complete)
 GET	/users/tasks?limit=2	Private	Limit the result to 2
 GET	/users/tasks?sortBy=createdAt:desc	Private	Sort by Descending order of created date
 GET	/users/tasks?sortBy=createdAt:asc	Private	Sort by Ascending order of created date
